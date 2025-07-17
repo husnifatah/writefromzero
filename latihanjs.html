@@ -33,26 +33,27 @@
     <body>
         <h1>Counter Sederhana</h1>
         <p>Angka : <span id="angka">0</span></p>
-        <button class="tambah" onclick="tambah()">Tambah</button>
-        <button class="kurang" onclick="kurang()">Kurang</button>
-        <button class="reset" onclick="reset()">Reset</button>
+        <button class="tambah">Tambah</button>
+        <button class="kurang">Kurang</button>
+        <button class="reset">Reset</button>
         <button class="alert" onclick="alert('Halo Husni!')">Sapa Aku</button>
 
         <script>
             let angka = 0;
+            const span = document.querySelector('#angka');
 
-            function tambah () {
-                angka = angka + 1;
-                document.getElementById("angka").innerHTML = angka;
-            }
-            function kurang() {
-                angka = angka - 1;
-                document.getElementById("angka").innerText = angka;
-            }
-            function reset() {
+            document.querySelector('.tambah').addEventListener('click', () => {
+                angka++;
+                span.textContent = angka;
+            })
+            document.querySelector('.kurang').addEventListener('click', () => {
+                angka--;
+                span.textContent = angka;
+            })
+            document.querySelector('.reset').addEventListener('click', () => {
                 angka = 0;
-                document.getElementById("angka").innerHTML = angka;
-            }
+                span.textContent = angka;
+            })
 
         </script>
     </body>
