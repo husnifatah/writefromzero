@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <title>Latihan If Else Cek Umur</title>
+    <style>
+        body {
+            font-family: sans-serif;
+            max-width: 400px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #f6f;
+            border-radius: 10px;
+            text-align: center;
+        }
+        input, button {
+            padding: 10px;
+            font-size: 18px;
+            margin-top: 10px;
+            width: 100%;
+
+        }
+        #tombol-cek, #reset {
+            background-color:bisque;
+            border-radius: 20px;
+            width:auto;
+        }
+        #hasil {
+            margin-top: 20px;
+            font-weight:bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Latihan mengecek umur user yang input</h1>
+    <input type="number" id="input-umur" placeholder="masukan umur anda"/>
+    <button id="tombol-cek">Cek Umurmu</button>
+    <button id="reset" type="reset">Reset</button>
+    <p id="hasil">Hasilnya adalah : </p>
+
+    <script>
+        const input = document.querySelector('#input-umur');
+        const tombol = document.querySelector('#tombol-cek');
+        const hasil = document.querySelector('#hasil');
+        const reset = document.querySelector('#reset');
+
+        tombol.addEventListener('click', () => {
+            const umur = parseInt(input.value);
+            if (isNaN(umur) || input.value.trim() === "") {
+                hasil.innerText = "Masukkan angka yang valid!";
+                return;
+
+
+            } else if (umur < 12) {
+                hasil.innerText = "Kamu masih anak-anak";
+
+            } else if (umur < 18) {
+                hasil.innerText = "Kamu remaja";
+
+            } else if (umur < 45) {
+                hasil.innerText = "Kamu dewasa";
+
+            } else if (umur < 70 ) {
+                hasil.innerText = "Kamu sudah tua, giginya tinggal 2"
+            } else {
+                hasil.innerText = "Sudah lanjut usia, bau tanah";
+            }
+        })
+        reset.addEventListener('click', () => {
+            input.value = '';
+            hasil.innerText = 'Hasilnya adalah : ';
+        } )
+    </script>
+</body>
