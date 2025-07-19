@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Array dan Looping</title>
+        <style>
+            body {
+                font-family: sans-serif;
+                max-width: 500px;
+                margin: 40px auto;
+                padding: 20px;
+                background-color: #f3f3f3;
+                border-radius: 10px;
+            }
+            input, button {
+                padding: 10px;
+                font-size: 18px;
+                margin-top: 10px;
+                width: 100%;
+            }
+            ul {
+                margin-top: 20px;
+                padding-left: 20px;            }
+            li {
+                margin-bottom: 8px;
+                list-style: none;
+            }
+            h1 {
+                text-align: center;
+                color: rgba(80, 204, 204, 0.8)
+            }
+            #tambah-hobi {
+                background-color: rgb(15, 230, 15);
+                width: auto;
+                color: white;
+                border-radius: 20px;
+
+
+            }
+            #hapus-semua {
+                background-color: red;
+                width: auto;
+                border-radius: 20px;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Daftar Hobiku</h1>
+        <input type="text" id="input-hobi" placeholder="Masukan hobi"/>
+        <span>
+        <button id="tambah-hobi">Tambah hobi</button>
+        <button id="hapus-semua">Hapus Semua</button>
+        </span>
+        <ul id="daftar-hobi"></ul>
+        <script>
+            const inputHobi = document.querySelector('#input-hobi');
+            const tambahHobi = document.querySelector('#tambah-hobi');
+            const hapusSemua = document.querySelector('#hapus-semua');
+            const daftarHobi = document.querySelector('#daftar-hobi');
+
+            let hobi = [];
+
+            function renderHobi() {
+                daftarHobi.innerHTML = '';
+                hobi.forEach((item, index) => {
+                    const li = document.createElement('li');
+                    li.textContent = `${index + 1 }. ${item}`;
+                    daftarHobi.appendChild(li);
+
+                });
+            }
+            tambahHobi.addEventListener('click', () => {
+                const nilai = inputHobi.value.trim();
+                if(nilai !== "") {
+                    hobi.push(nilai);
+                    inputHobi.value = '';
+                    renderHobi();
+                }
+            });
+
+            hapusSemua.addEventListener('click', () => {
+                hobi = [];
+                renderHobi();
+            })
+
+        </script>
+        
+
+    </body>
+</html>
